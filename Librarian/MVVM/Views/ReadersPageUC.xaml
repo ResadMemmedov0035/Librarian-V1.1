@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Librarian.MVVM.Views.ReadersPageUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Librarian.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Text="Readers" FontSize="80"
+                   Foreground="Aqua"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Text="Not finished yet..." FontSize="10"
+                   Foreground="Aqua"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>

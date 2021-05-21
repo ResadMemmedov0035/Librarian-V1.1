@@ -1,0 +1,36 @@
+﻿<Application x:Class="Librarian.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Librarian"
+             xmlns:vm="clr-namespace:Librarian.MVVM.ViewModels"
+             xmlns:v="clr-namespace:Librarian.MVVM.Views"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Yellow.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="Themes/BorderThemes.xaml"/>
+                <ResourceDictionary Source="Themes/TextBoxThemes.xaml"/>
+                <ResourceDictionary Source="Themes/ListBoxItemThemes.xaml"/>
+                <ResourceDictionary Source="Themes/ButtonThemes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:BooksPageVM}">
+                <v:BooksPageUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:ReadersPageVM}">
+                <v:ReadersPageUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:DetailsPageVM}">
+                <v:DetailsPageUC/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

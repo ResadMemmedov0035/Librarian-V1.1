@@ -1,0 +1,79 @@
+﻿<Window x:Class="Librarian.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Librarian"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:Librarian.MVVM.ViewModels"
+        mc:Ignorable="d"  MinHeight="350" MinWidth="680"
+        Title="Librarian" Height="450" Width="800"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Icon="Images/books.png"
+        UseLayoutRounding="True">
+
+    <Border Style="{StaticResource BorderStyleWindow}">
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- R0 -->
+            
+            <materialDesign:ColorZone Mode="PrimaryMid"
+                                      Margin="1" Padding="8">                
+                <DockPanel LastChildFill="False">
+                    
+                    <materialDesign:ColorZone Margin="20 0" 
+                                              Padding="8 4" 
+                                              CornerRadius="2"
+                                              materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Content="{materialDesign:PackIcon Kind=Search}"
+                                    Style="{DynamicResource MaterialDesignToolButton}"/>
+                            
+                            <TextBox Grid.Column="1"
+                                     Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                     materialDesign:HintAssist.Hint="Search by keyword"
+                                     Style="{StaticResource TextBoxStyleSearch}"/>
+                        </Grid>
+                    </materialDesign:ColorZone>
+
+                    <StackPanel Grid.Row="1"
+                                DockPanel.Dock="Right"
+                                Orientation="Horizontal">
+                        
+                        <RadioButton Content="Books" IsChecked="True"
+                                     MinWidth="120"
+                                     Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                                     Command="{Binding BooksPageChangeCommand}"/>
+                        <RadioButton Content="Readers"
+                                     MinWidth="120"
+                                     Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
+                                     Command="{Binding ReadersPageChangeCommand}"/>
+                    </StackPanel>
+
+                </DockPanel>
+            </materialDesign:ColorZone>
+
+            <!-- R1 -->
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding CurrentViewModel}"/>
+
+        </Grid>
+    </Border>
+</Window>
